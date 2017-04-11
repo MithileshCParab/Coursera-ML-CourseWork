@@ -1,2 +1,2 @@
-# CourseraMachineLearningCourse
-My solutions to machine learning programming assignments 
+# ML PROGRAMMING ASSIGNMENTS 
+
