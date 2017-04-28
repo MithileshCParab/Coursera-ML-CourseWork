@@ -39,26 +39,26 @@ Theta2_grad = zeros(size(Theta2));
 %         cost function computation is correct by verifying the cost
 %         computed in ex4.m
 
-a1=[ones(m,1) X];
+a1 = [ones(m, 1) X];
 
-z2=a1*Theta1';
-a2=sigmoid(z2);
-a2=[ones(size(a2,1), 1) a2];
+z2 = a1 * Theta1';
+a2 = sigmoid(z2);
+a2 = [ones(size(a2,1), 1) a2];
 
-z3=a2*Theta2';
-a3=sigmoid(z3);
-hThetaX=a3;
+z3 = a2 * Theta2';
+a3 = sigmoid(z3);
+hThetaX = a3;
 
-yVec=zeros(m,num_labels);
-for i=1:m;
-	yVec(i,y(i))=1;
+yVec = zeros(m,num_labels);
+
+for i = 1:m
+    yVec(i,y(i)) = 1;
 end
+J = 1/m * sum(sum(-1 * yVec .* log(hThetaX)-(1-yVec) .* log(1-hThetaX)));
 
-J=(1/m)* sum(sum(-1 * yVec .* log(hThetaX)-(1-yVec) .* log(1-hThetaX)));
+regularator = (sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2))) * (lambda/(2*m));
 
-reggulator = ()sum(sum(Theta1(:,2:end).^2))+sum(sum(Theta2(:,2:end).^2)) * (lambda/(2*m));
-
-J=J+reggulator;
+J = J + regularator;
 
 % Part 2: Implement the backpropagation algorithm to compute the gradients
 %         Theta1_grad and Theta2_grad. You should return the partial derivatives of
