@@ -43,6 +43,9 @@ grad= ( 1 / m )*sum( X .* repmat((sigmoid(X*theta)-y),1,size(X,2)) );
 grad(:,2:length(grad))=grad(:,2:length(grad))+(lambda/m)*theta(2:length(theta))';
 
 
+
+
+
 % =============================================================
 
 grad = grad(:);
